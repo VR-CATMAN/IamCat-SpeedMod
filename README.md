@@ -17,3 +17,6 @@ Example: C:\SteamLibrary\steamapps\common\I Am Cat\
 3. Paste SpeedMod.dll into the Mods folder in that folder (create a Mods folder if it does not exist)
 
 4. Start I Am Cat and if the NPCs (such as the grandmother) move faster, it's OK.
+
+## 📜 License
+MIT License © VR-CATMAN
