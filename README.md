@@ -18,5 +18,17 @@ Example: C:\SteamLibrary\steamapps\common\I Am Cat\
 
 4. Start I Am Cat and if the NPCs (such as the grandmother) move faster, it's OK.
 
+## 🤝 Contributing
+
+1. Fork this repository
+
+2. Create a branch `feature/xyz`
+
+3. Commit and push your changes
+
+4. Create a Pull Request
+
+※ Try the issue with the “good first issue” label!
+
 ## 📜 License
 MIT License © VR-CATMAN
