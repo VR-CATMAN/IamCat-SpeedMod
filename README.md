@@ -26,8 +26,9 @@ Example: C:\SteamLibrary\steamapps\common\I Am Cat\
 
 3. Commit and push your changes
 
-4. Create a Pull Request
-
+4. Create a Pull Request <br>
+Please use the template in the link below. <br>
+https://github.com/VR-CATMAN/IamCat-SpeedMod/blob/main/PULL_REQUEST_TEMPLATE.md <br>
 ※ Try the issue with the “good first issue” label!
 
 ## 📜 License
