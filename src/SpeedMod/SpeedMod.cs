@@ -2,53 +2,42 @@
 using MelonLoader;
 using UnityEngine;
 
-[assembly: MelonInfo(typeof(SimpleTimeScaleMod), "SimpleTimeScaleMod", "1.0.0", "YourName")]
+[assembly: MelonInfo(typeof(SimpleTimeScaleMod), "SimpleTimeScaleMod", "1.1.0", "YourName")]
 [assembly: MelonGame("New Folder Games", "I Am Cat")]
 
 public class SimpleTimeScaleMod : MelonMod
 {
-    public override void OnApplicationStart()
+    // Preference entry for time scale multiplier
+    private static MelonPreferences_Entry<float> timeScaleEntry;
+
+    // Called once when MelonLoader finishes initializing
+    public override void OnInitializeMelon()
     {
-        MelonLogger.Msg("SimpleTimeScaleMod loaded! Time.timeScale = 2");
+        // Create (or load) a config entry:
+        // section: "SimpleTimeScaleMod", key: "TimeScaleMultiplier", default: 2.0f
+        timeScaleEntry = MelonPreferences.CreateEntry(
+            "SimpleTimeScaleMod",            // category name
+            "TimeScaleMultiplier",           // entry key
+            2.0f,                            // default value
+            "Global time scale multiplier (e.g. 0.5 = half speed, 2 = double speed)"  // description
+        );
+
+        // Ensure the .cfg file is written
+        MelonPreferences.Save();
+
+        MelonLogger.Msg($"[SimpleTimeScaleMod] Loaded config: TimeScaleMultiplier = {timeScaleEntry.Value}");
     }
 
+    // Called every frame
     public override void OnUpdate()
     {
-        // ここを好きな倍率に変えれば OK
-        Time.timeScale = 2f;
-        Time.fixedDeltaTime = 0.02f * Time.timeScale;  // 物理挙動の同期用
+        // Read the current multiplier from config
+        float scale = timeScaleEntry.Value;
+
+        // Apply to Unity’s time scale
+        Time.timeScale = scale;
+
+        // Sync physics update rate
+        Time.fixedDeltaTime = 0.02f * scale;
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
